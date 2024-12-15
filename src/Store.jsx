@@ -1,4 +1,7 @@
 /* eslint-disable no-case-declarations */
+
+import { createStore } from "redux";
+
 const ADD_TASK = "task/add";
 const DELETE_TASK = "task/delete";
 const initaiState = {
@@ -26,3 +29,12 @@ const taskReducer = (state = initaiState, action) =>{
             return state;
     }
 }
+
+const store = createStore(taskReducer)
+//console.log(store);
+console.log(store.getState())
+store.dispatch({type: ADD_TASK, payload:'Alok Singh'})
+store.dispatch({type: ADD_TASK, payload:'Amar Singh'})
+console.log(store.getState())
+store.dispatch({type: DELETE_TASK, payload:1})
+console.log(store.getState())

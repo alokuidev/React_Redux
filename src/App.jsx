@@ -1,3 +1,4 @@
+import './Store.jsx';
 const App = () =>{
   return <h1>Hello Redux</h1>
 }
