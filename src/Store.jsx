@@ -1,7 +1,6 @@
 /* eslint-disable no-case-declarations */
-
 import { createStore } from "redux";
-
+import { composeWithDevTools } from '@redux-devtools/extension';
 const ADD_TASK = "task/add";
 const DELETE_TASK = "task/delete";
 const initaiState = {
@@ -18,6 +17,7 @@ const taskReducer = (state = initaiState, action) =>{
             }
             case DELETE_TASK:
             const updateTask = state.task.filter((currTask, index) =>{
+                console.log(index,action.payload)
                 return index != action.payload;
             })
             return {
@@ -30,20 +30,22 @@ const taskReducer = (state = initaiState, action) =>{
     }
 }
 
-export const store = createStore(taskReducer)
+export const store = createStore(taskReducer, composeWithDevTools())
 //console.log(store);
 
 
 
-console.log(store.getState())
-store.dispatch(addTask('Alok Singh'))
-store.dispatch(addTask('Amar Singh'))
-console.log(store.getState())
-store.dispatch(deleteTask(1))
-console.log(store.getState())
-function addTask(data){
+//console.log(store.getState())
+//store.dispatch(addTask('Alok Singh'))
+//store.dispatch(addTask('Amar Singh'))
+//store.dispatch(addTask('Bowa Singh'))
+//console.log(store.getState())
+//store.dispatch(deleteTask(1))
+//console.log(store.getState())
+export function addTask(data){
     return {type: ADD_TASK, payload:data}
 }
-function deleteTask(data){
-    return {type: DELETE_TASK, payload:data}
+export function deleteTask(id){
+    //console.log(id)
+    return {type: DELETE_TASK, payload:id}
 }
