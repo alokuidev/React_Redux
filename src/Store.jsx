@@ -30,7 +30,7 @@ const taskReducer = (state = initaiState, action) =>{
     }
 }
 
-const store = createStore(taskReducer)
+export const store = createStore(taskReducer)
 //console.log(store);
 
 

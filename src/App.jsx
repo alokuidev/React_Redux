@@ -1,6 +1,9 @@
-import './Store.jsx';
+import { Todo } from "./Compoenent/Todo";
+import './App.css';
 const App = () =>{
-  return <h1>Hello Redux</h1>
+  return (
+    <Todo/>
+  )
 }
 
 export default App;
